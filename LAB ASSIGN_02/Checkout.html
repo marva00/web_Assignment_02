@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - Driving School</title>
+    <meta name="description" content="Complete your course purchase securely." />
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Google Fonts (from original theme) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Checkout Stylesheet -->
+    <link rel="stylesheet" href="checkout.css" />
+</head>
+<body>
+
+    <!-- Consistent Header from Website -->
+    <header class="header">
+        <div class="container">
+            <a href="#home" class="logo">
+                <!-- Using a placeholder that looks like the reference image -->
+                <img src="assets/logo.png" alt="Driving School Logo" />
+            </a>
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <!-- NOTE: You will need to create these icon files in an 'assets' folder -->
+                    <li><a href="index.html"><img src="assets/home_icon.svg" alt="" class="nav-icon">Home</a></li>
+                    <li><a href="index.html#courses"><img src="assets/degree_icon.svg" alt="" class="nav-icon">Courses and exams</a></li>
+                    <li><a href="index.html#info"><img src="assets/information_icon.svg" alt="" class="nav-icon">Information centre</a></li>
+                    <li><a href="index.html#gallery"><img src="assets/imageGallery_icon.svg" alt="" class="nav-icon">Image gallery</a></li>
+                    <li><a href="index.html#contact"><img src="assets/contactUs_icon.svg" alt="" class="nav-icon">Contact us</a></li>
+                    <li><a href="checkout.html" class="btn-buy active">Buy Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container py-5">
+            <!-- Progress Header -->
+            <div class="progress-header text-center mb-5">
+                <div class="progress-tracker">
+                    <div class="step completed"><div class="step-icon">✓</div><div class="step-label">Cart</div></div>
+                    <div class="step-connector completed"></div>
+                    <div class="step active"><div class="step-icon">2</div><div class="step-label">Address & Payment</div></div>
+                    <div class="step-connector"></div>
+                    <div class="step"><div class="step-icon">3</div><div class="step-label">Review</div></div>
+                </div>
+                <h2 class="checkout-heading mt-4">CHECKOUT</h2>
+            </div>
+
+            <div class="row g-4">
+                <!-- Left Column: Forms -->
+                <div class="col-md-7">
+                    <form id="checkout-form" novalidate>
+                        <!-- Shipping Form -->
+                        <h4 class="form-section-heading mb-3">CUSTOMER & SHIPPING DETAILS</h4>
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label for="fullName" class="form-label">Full name</label>
+                                <input type="text" class="form-control" id="fullName" placeholder="John M. Doe" required>
+                                <div class="invalid-feedback">Full name must be at least 3 characters.</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                                <div class="invalid-feedback">Please enter a valid email address.</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="phone" class="form-label">Phone</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="1234567890" required>
+                                <div class="invalid-feedback">Please enter a valid phone number (at least 10 digits).</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="address" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                                <div class="invalid-feedback">Please enter your shipping address.</div>
+                            </div>
+                            <div class="col-md-5">
+                                <label for="city" class="form-label">City</label>
+                                <input type="text" class="form-control" id="city" required>
+                                <div class="invalid-feedback">City is required.</div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="country" class="form-label">Country</label>
+                                <select class="form-select" id="country" required>
+                                    <option value="">Choose...</option>
+                                    <option>United States</option>
+                                    <option>Canada</option>
+                                    <option>Mexico</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a valid country.</div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="zip" class="form-label">Postal Code</label>
+                                <input type="text" class="form-control" id="zip" required>
+                                <div class="invalid-feedback">Postal code must be 4-6 digits.</div>
+                            </div>
+                        </div>
+                        <hr class="my-4">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="same-address">
+                            <label class="form-check-label" for="same-address">Billing address is the same as my shipping address</label>
+                        </div>
+                        
+                        <!-- Payment Section -->
+                        <h4 class="form-section-heading mt-4 mb-3">PAYMENT METHOD</h4>
+                        <div class="my-3">
+                            <div class="form-check"><input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required><label class="form-check-label" for="credit">Credit card</label></div>
+                            <div class="form-check"><input id="cod" name="paymentMethod" type="radio" class="form-check-input" required><label class="form-check-label" for="cod">Cash on Delivery (COD)</label></div>
+                            <div class="form-check"><input id="wallet" name="paymentMethod" type="radio" class="form-check-input" required><label class="form-check-label" for="wallet">Digital Wallet</label></div>
+                        </div>
+
+                        <!-- Wrapper for Credit Card Details -->
+                        <div id="credit-card-details">
+                            <div class="row gy-3">
+                                <div class="col-md-6">
+                                    <label for="cc-name" class="form-label">Name on card</label>
+                                    <input type="text" class="form-control" id="cc-name" required>
+                                    <small class="text-muted">Full name as displayed on card</small>
+                                    <div class="invalid-feedback">Name on card is required</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="cc-number" class="form-label">Credit card number</label>
+                                    <input type="text" class="form-control" id="cc-number" placeholder="xxxx-xxxx-xxxx-xxxx" required>
+                                    <div class="invalid-feedback">Credit card number is required</div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="cc-expiration" class="form-label">Expiration</label>
+                                    <input type="text" class="form-control" id="cc-expiration" placeholder="MM/YY" required>
+                                    <div class="invalid-feedback">Expiration date required</div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="cc-cvv" class="form-label">CVV</label>
+                                    <input type="text" class="form-control" id="cc-cvv" placeholder="123" required>
+                                    <div class="invalid-feedback">Security code required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Right Column: Order Summary -->
+                <div class="col-md-5">
+                    <div class="order-summary-card">
+                        <h4 class="d-flex justify-content-between align-items-center mb-3"><span class="summary-heading">ORDER SUMMARY</span><span class="badge bg-highlight rounded-pill">3</span></h4>
+                        <ul class="list-group mb-3">
+                             <li class="list-group-item d-flex justify-content-between lh-sm"><div><h6 class="my-0">M Class License Course</h6><small class="text-muted">Full theoretical and practical training.</small></div><span class="text-muted">$450.00</span></li>
+                             <li class="list-group-item d-flex justify-content-between lh-sm"><div><h6 class="my-0">Advanced Safety Module</h6><small class="text-muted">Optional add-on</small></div><span class="text-muted">$75.00</span></li>
+                             <li class="list-group-item d-flex justify-content-between lh-sm"><div><h6 class="my-0">Protective Gear Rental</h6><small class="text-muted">Helmet and Jacket</small></div><span class="text-muted">$25.00</span></li>
+                             <li class="list-group-item d-flex justify-content-between"><span>Subtotal (USD)</span><strong>$550.00</strong></li>
+                             <li class="list-group-item d-flex justify-content-between"><span>Shipping</span><strong>$0.00</strong></li>
+                             <li class="list-group-item d-flex justify-content-between"><span>Tax (8%)</span><strong>$44.00</strong></li>
+                             <li class="list-group-item d-flex justify-content-between bg-light"><span class="fw-bold">Grand Total (USD)</span><strong class="fw-bold">$594.00</strong></li>
+                        </ul>
+                        <form class="card p-2"><div class="input-group"><input type="text" class="form-control" placeholder="Promo code"><button type="submit" class="btn btn-secondary">Apply</button></div></form>
+                        <div class="form-check mt-4">
+                            <input type="checkbox" class="form-check-input" value="" id="termsCheck" required>
+                            <label class="form-check-label" for="termsCheck">I agree to the <a href="#">terms and conditions</a>.</label>
+                             <div class="invalid-feedback d-block" id="terms-feedback" style="display: none;">You must agree to the terms before placing an order.</div>
+                        </div>
+                        <button class="w-100 btn btn-primary btn-lg mt-3" type="button" id="placeOrderBtn" disabled>Place Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ... (Your footer can go here) ... -->
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    
+    <!-- Custom Validation Script -->
+    <script src="validation.js"></script>
+</body>
+</html>

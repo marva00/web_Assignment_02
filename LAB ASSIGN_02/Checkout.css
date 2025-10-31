@@ -1,0 +1,247 @@
+/* ===================================================
+   HEADER STYLES (Corrected to match reference image)
+====================================================== */
+.header {
+    background: var(--white-color);
+    border-bottom: 1px solid #f2f2f2;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 47px;
+    display: block;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav a {
+    color: var(--heading-color);
+    font-size: 15px;
+    font-family: var(--font-body);
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    padding: 20px 15px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* On hover or if the link is active, change the color */
+.nav a:hover,
+.nav a.active {
+    color: var(--primary-color);
+}
+
+/* Specific style for the "Buy Now" link to match the image */
+.nav a.btn-buy {
+    /* Keeping this consistent with other links as per the image */
+    color: var(--heading-color); 
+    font-weight: 400; /* As per your provided CSS */
+}
+
+.nav a.btn-buy.active,
+.nav a.btn-buy:hover {
+    color: var(--primary-color); /* It should also highlight on hover/active */
+}
+
+
+/* ===================================================
+   CHECKOUT PAGE STYLES (Your Original Code)
+====================================================== */
+
+/* Use theme's root variables for consistency */
+:root {
+    --primary-color: #dbac00;
+    --primary-color-hover: #b18b00;
+    --heading-color: #1c1c1c;
+    --body-text-color: #626262;
+    --light-gray-bg: #f9f9f7;
+    --footer-bg: #101010;
+    --footer-text: #949494;
+    --white-color: #ffffff;
+    --font-body: 'Roboto', sans-serif;
+    --font-heading: 'Oswald', sans-serif;
+}
+
+/* ================================
+   TYPOGRAPHY & GENERAL STYLES
+================================ */
+body {
+    background-color: var(--white-color); /* Ensure background is consistent */
+}
+
+.checkout-heading,
+.form-section-heading,
+.summary-heading {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    color: var(--heading-color);
+}
+
+.checkout-heading {
+    font-size: 30px;
+}
+
+.form-section-heading,
+.summary-heading {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+/* ================================
+   PROGRESS TRACKER
+================================ */
+.progress-tracker {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+.step {
+    text-align: center;
+    width: 120px;
+}
+.step-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #e0e0e0;
+    color: #a0a0a0;
+    background-color: var(--white-color);
+    margin: 0 auto 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-family: var(--font-heading);
+}
+.step-label {
+    font-size: 13px;
+    color: #a0a0a0;
+}
+.step-connector {
+    flex-grow: 1;
+    max-width: 100px;
+    height: 2px;
+    background-color: #e0e0e0;
+    margin-top: 19px;
+}
+/* Active & Completed States */
+.step.active .step-icon {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+.step.active .step-label {
+    color: var(--heading-color);
+    font-weight: bold;
+}
+.step.completed .step-icon {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white-color);
+}
+.step.completed .step-label {
+    color: var(--heading-color);
+}
+.step-connector.completed {
+    background-color: var(--primary-color);
+}
+
+/* ================================
+   FORM STYLING
+================================ */
+.form-control,
+.form-select {
+    border-radius: 0;
+    border-color: #e0e0e0;
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(219, 172, 0, 0.25);
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* ================================
+   ORDER SUMMARY CARD
+================================ */
+.order-summary-card {
+    position: sticky;
+    top: 100px; 
+}
+
+.list-group-item {
+    background-color: transparent;
+}
+
+.bg-highlight {
+    background-color: var(--primary-color) !important;
+}
+
+/* ================================
+   UPDATED: BUTTONS
+================================ */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-radius: 0;
+    text-transform: uppercase;
+    font-family: var(--font-heading);
+    padding: 12px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--primary-color-hover);
+    border-color: var(--primary-color-hover);
+    box-shadow: none;
+}
+
+.btn-primary:active {
+    background-color: #9a7900;
+    border-color: #9a7900;
+    transform: scale(0.98);
+    box-shadow: none;
+}
+
+.btn-primary:disabled {
+    background-color: #a0a0a0;
+    border-color: #a0a0a0;
+    transform: scale(1);
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    border-radius: 0;
+}

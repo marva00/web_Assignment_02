@@ -1,0 +1,32 @@
+/* General body styling */
+body {
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+/* Add a subtle hover effect to post cards */
+#posts-container .card {
+    transition: box-shadow 0.3s ease-in-out, transform 0.2s ease;
+}
+
+#posts-container .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure footer buttons have some space */
+.card-footer .btn {
+    margin-right: 5px;
+}
+
+/* Add a distinct visual style for the form when it's in "edit mode" */
+#form-card.edit-mode {
+    border-color: #198754; /* Bootstrap's success green color */
+    border-width: 2px;
+}
+
+/* Ensure the navbar stays on top */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
